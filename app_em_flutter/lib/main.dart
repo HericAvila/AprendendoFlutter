@@ -28,7 +28,11 @@ class _Compute extends State {
   Widget build(BuildContext context) {
     return Container(
         child: Column(
-      children: [TextField(), TextField()],
+      children: [
+        TextField(
+          decoration: InputDecoration(hintText: "Dig"),
+        )
+      ],
     ));
   }
 }
