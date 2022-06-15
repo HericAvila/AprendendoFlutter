@@ -27,34 +27,41 @@ class _Compute extends State {
   @override
   Widget build(BuildContext context) {
     return Container(
-        padding: EdgeInsets.only(left: 16, right: 16),
+        padding: EdgeInsets.only(left: 16, right: 16, top: 10),
         child: Column(
           children: [
             TextField(
               decoration: InputDecoration(
-                  hintText: "Digite o valor 25",
-                  labelText: "Numero",
-                  suffixText: "kg",
+                  hintText: "Digite o seu peso",
+                  labelText: "Peso",
+                  suffixText: "Kg",
                   prefixIcon: Icon(
                     Icons.person,
                     color: Colors.orange,
                   )),
             ),
+            Divider(),
             TextField(
               decoration: InputDecoration(
                   hintText: "Digite outro 1234 valor",
-                  labelText: "Numero",
-                  suffixText: "kg",
+                  labelText: "Altura",
+                  suffixText: "cm",
                   prefixIcon: Icon(
                     Icons.analytics,
                     color: Colors.grey,
                   )),
             ),
-            RaisedButton(
-              onPressed: () {},
-              child: Text("Calcular"),
-              color: Colors.blueAccent,
-              textColor: Colors.white,
+            Divider(),
+            Row(
+              children: [
+                Expanded(
+                    child: RaisedButton(
+                  onPressed: () {},
+                  child: Text("Calcular"),
+                  color: Color.fromARGB(255, 1, 9, 22),
+                  textColor: Colors.white,
+                ))
+              ],
             ),
             Text(""),
           ],
