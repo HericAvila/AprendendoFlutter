@@ -30,7 +30,17 @@ class _Compute extends State {
         child: Column(
       children: [
         TextField(
-          decoration: InputDecoration(hintText: "Dig"),
+          decoration: InputDecoration(
+              hintText: "Digite o valor 25",
+              labelText: "Numero",
+              suffixText: "kg",
+              prefixIcon: Icon(
+                Icons.person,
+                color: Colors.amber,
+              )),
+        ),
+        TextField(
+          decoration: InputDecoration(hintText: "Digite outro número"),
         )
       ],
     ));
