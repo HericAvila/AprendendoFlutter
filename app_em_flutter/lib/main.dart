@@ -40,7 +40,35 @@ class _Compute extends State {
     imc = (weight / pow((height / 100), 2));
 
     setState(() {
-      output = imc.toString();
+      if (imc < 17.0) {
+        output = "Seu Indice de Massa Corporal é: " +
+            imc.toStringAsFixed(2) +
+            "\n Você está muito abaixo do peso.";
+      } else if (18.50 > imc && imc >= 17.0) {
+        output = "Seu Indice de Massa Corporal é: " +
+            imc.toStringAsFixed(2) +
+            "\n Você está abaixo do peso.";
+      } else if (25.0 > imc && imc >= 18.50) {
+        output = "Seu Indice de Massa Corporal é: " +
+            imc.toStringAsFixed(2) +
+            "\n Seu peso está normal.";
+      } else if (30 > imc && imc >= 25) {
+        output = "Seu Indice de Massa Corporal é: " +
+            imc.toStringAsFixed(2) +
+            "\n Você está acima do peso.";
+      } else if (35 > imc && imc >= 30) {
+        output = "Seu Indice de Massa Corporal é: " +
+            imc.toStringAsFixed(2) +
+            "\n Você está em nivel de obesidade I.";
+      } else if (40 > imc && imc >= 35) {
+        output = "Seu Indice de Massa Corporal é: " +
+            imc.toStringAsFixed(2) +
+            "\n Você está em nivel de obesidade II.";
+      } else {
+        output = "Seu Indice de Massa Corporal é: " +
+            imc.toStringAsFixed(2) +
+            "\n Você está com um pé na cova.";
+      }
     });
   }
 
@@ -87,7 +115,7 @@ class _Compute extends State {
                 ))
               ],
             ),
-            Text(output),
+            Text(output, style: TextStyle(fontSize: 16))
           ],
         ));
   }
