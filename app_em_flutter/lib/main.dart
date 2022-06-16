@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'dart:math';
 
 void main() {
   runApp(Calculator());
@@ -27,9 +28,19 @@ class _Compute extends State {
   TextEditingController tfWeight = TextEditingController();
   TextEditingController tfHeight = TextEditingController();
   String output = "";
+
   void calculaIMC() {
+    var weight;
+    var height;
+    var imc;
+
+    weight = double.parse(tfWeight.text);
+    height = double.parse(tfHeight.text);
+
+    imc = (weight / pow((height / 100), 2));
+
     setState(() {
-      output = tfWeight.text;
+      output = imc.toString();
     });
   }
 
@@ -55,7 +66,7 @@ class _Compute extends State {
               controller: tfHeight,
               decoration: InputDecoration(
                   hintText: "Digite sua altura",
-                  labelText: "Altura em cm",
+                  labelText: "Altura",
                   suffixText: "cm",
                   prefixIcon: Icon(
                     Icons.analytics,
