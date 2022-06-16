@@ -24,6 +24,15 @@ class Calculadora extends StatefulWidget {
 }
 
 class _Compute extends State {
+  TextEditingController tfWeight = TextEditingController();
+  TextEditingController tfHeight = TextEditingController();
+  String output = "";
+  void calculaIMC() {
+    setState(() {
+      output = tfWeight.text;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -31,6 +40,7 @@ class _Compute extends State {
         child: Column(
           children: [
             TextField(
+              controller: tfWeight,
               decoration: InputDecoration(
                   hintText: "Digite o seu peso",
                   labelText: "Peso",
@@ -42,9 +52,10 @@ class _Compute extends State {
             ),
             Divider(),
             TextField(
+              controller: tfHeight,
               decoration: InputDecoration(
-                  hintText: "Digite outro 1234 valor",
-                  labelText: "Altura",
+                  hintText: "Digite sua altura",
+                  labelText: "Altura em cm",
                   suffixText: "cm",
                   prefixIcon: Icon(
                     Icons.analytics,
@@ -56,14 +67,16 @@ class _Compute extends State {
               children: [
                 Expanded(
                     child: RaisedButton(
-                  onPressed: () {},
+                  onPressed: () {
+                    calculaIMC();
+                  },
                   child: Text("Calcular"),
-                  color: Color.fromARGB(255, 1, 9, 22),
+                  color: Color.fromARGB(255, 19, 62, 132),
                   textColor: Colors.white,
                 ))
               ],
             ),
-            Text(""),
+            Text(output),
           ],
         ));
   }
